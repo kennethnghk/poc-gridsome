@@ -22,7 +22,29 @@ module.exports = function (api) {
     }
   })
 
-  api.createPages(({ createPage }) => {
-    // Use the Pages API here: https://gridsome.org/docs/pages-api/
+  api.createPages(async ({ graphql, createPage }) => {
+    const { data } = await graphql(`{
+      allApp {
+        edges {
+          node {
+            name
+            stores {
+              name
+            }
+          }
+        }
+      }
+    }`)
+
+    data.allApp.edges.forEach(({ node }) => {
+      console.log(node.name)
+      createPage({
+        path: `/app/${node.name}`,
+        component: './src/templates/App.vue',
+        context: {
+          app: node
+        }
+      })
+    })
   })
 }

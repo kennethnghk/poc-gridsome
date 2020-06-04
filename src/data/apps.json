@@ -1,10 +1,6 @@
 [
     {
         "name": "lubuds",
-        "hostnames" : [
-            "localhost",
-            "lubuds.store.dev"
-        ],
         "stores": [
             {
                 "name": "LUBUDS STORE 1"
@@ -25,9 +21,6 @@
     },
     {
         "name": "gaia",
-        "hostnames" : [
-            "gaia.store.dev"
-        ],
         "stores": [
             {
                 "name": "GAIA STORE 1"
